@@ -1,0 +1,5 @@
+---
+# vars file for role-daedalus
+daedalus_build_id: 21857
+daedalus_checksum: 46531a963d69687ca31dd68d471e0428f3d1bc2962da045d2e2618502463ad9b
+daedalus_version: 4.11.0

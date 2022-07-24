@@ -1,0 +1,6 @@
+---
+# tasks file for role-gnome
+- name: Install gnome
+  ansible.builtin.apt:
+    name: task-gnome-desktop
+  become: yes

@@ -1,0 +1,5 @@
+- name: Create daedalus
+  hosts: default
+
+  roles:
+    - role: role-daedalus

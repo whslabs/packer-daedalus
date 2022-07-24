@@ -1,0 +1,19 @@
+---
+# tasks file for role-daedalus
+- name: Create downloads directory
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/Downloads/"
+    state: directory
+- name: Set daedalus filename
+  ansible.builtin.set_fact:
+    daedalus_filename: daedalus-{{ daedalus_version }}-mainnet-{{ daedalus_build_id }}.bin
+- name: Download daedalus
+  ansible.builtin.get_url:
+    checksum: sha256:{{ daedalus_checksum }}
+    dest: "{{ ansible_env.HOME }}/Downloads/{{ daedalus_filename }}"
+    mode: 0744
+    url: https://update-cardano-mainnet.iohk.io/{{ daedalus_filename }}
+- name: Install daedalus
+  ansible.builtin.command:
+    cmd: "{{ ansible_env.HOME }}/Downloads/{{ daedalus_filename }}"
+    creates: "{{ ansible_env.HOME }}/.local/bin/daedalus-mainnet"
