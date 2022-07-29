@@ -1,3 +1,18 @@
+packer {
+  required_plugins {
+    # https://github.com/hashicorp/packer-plugin-ansible
+    ansible = {
+      source  = "github.com/hashicorp/ansible"
+      version = ">= 1.0.3"
+    }
+    # https://github.com/hashicorp/packer-plugin-virtualbox
+    virtualbox = {
+      source  = "github.com/hashicorp/virtualbox"
+      version = ">= 1.0.4"
+    }
+  }
+}
+
 source "virtualbox-iso" "daedalus" {
   disk_size        = 250000
   guest_os_type    = "Debian_64"
