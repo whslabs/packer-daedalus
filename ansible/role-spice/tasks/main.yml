@@ -1,0 +1,6 @@
+---
+# tasks file for role-spice
+- name: Install spice agent
+  ansible.builtin.apt:
+    name: spice-vdagent
+  become: yes

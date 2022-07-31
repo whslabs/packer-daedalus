@@ -37,7 +37,7 @@ build {
   sources = ["source.qemu.daedalus-qemu"]
 
   provisioner "ansible" {
-    playbook_file = "ansible/playbook.yaml"
+    playbook_file = "ansible/playbook-qemu.yaml"
     use_proxy     = false
     user          = "packer"
   }
