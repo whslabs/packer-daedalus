@@ -1,0 +1,28 @@
+---
+# tasks file for role-vbox-guest-additions
+- name: Create vbox guest additions temporary directory
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: vbox-guest-additions
+  register: vbox_guest_additions_tmpdir
+- name: Mount vbox guest additions iso
+  ansible.posix.mount:
+    fstype: iso9660
+    path: "{{ vbox_guest_additions_tmpdir.path }}"
+    src: "{{ ansible_env.HOME }}/VBoxGuestAdditions.iso"
+    state: mounted
+  become: yes
+- name: Install vbox guest additions
+  ansible.builtin.shell: "{{ vbox_guest_additions_tmpdir.path }}/VBoxLinuxAdditions.run"
+  become: yes
+  ignore_errors: yes
+- name: Unmount vbox guest additions iso
+  ansible.posix.mount:
+    path: "{{ vbox_guest_additions_tmpdir.path }}"
+    state: absent
+  become: yes
+- name: Remove vbox guest additions temporary directory
+  ansible.builtin.file:
+    path: "{{ vbox_guest_additions_tmpdir.path }}"
+    state: absent
+  when: vbox_guest_additions_tmpdir.path is defined

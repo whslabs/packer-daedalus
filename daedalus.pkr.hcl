@@ -33,7 +33,7 @@ build {
   sources = ["sources.virtualbox-iso.daedalus"]
 
   provisioner "ansible" {
-    playbook_file = "ansible/playbook.yaml"
+    playbook_file = "ansible/playbook-virtualbox.yaml"
     use_proxy     = false
     user          = "packer"
   }

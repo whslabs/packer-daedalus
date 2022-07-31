@@ -3,3 +3,4 @@
 
   roles:
     - role: role-daedalus
+    - role: role-vbox-guest-additions
