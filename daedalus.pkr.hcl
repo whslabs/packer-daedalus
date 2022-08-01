@@ -25,7 +25,7 @@ source "virtualbox-iso" "daedalus" {
   ssh_username     = "packer"
   boot_command = [
     "<esc><wait>",
-    "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg PACKER_AUTHORIZED_KEY={{ .SSHPublicKey | urlquery }}<enter>"
+    "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg SSH_PUBLIC_KEY={{ .SSHPublicKey | urlquery }}<enter>"
   ]
 }
 

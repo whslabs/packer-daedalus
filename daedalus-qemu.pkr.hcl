@@ -26,7 +26,7 @@ source "qemu" "daedalus-qemu" {
   ssh_username         = "packer"
   boot_command = [
     "<esc><wait>",
-    "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg PACKER_AUTHORIZED_KEY_FILE=packer.pub<enter>"
+    "auto url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg SSH_PUBLIC_KEY_FILE=packer.pub<enter>"
   ]
   qemuargs = [
     ["-cpu", "host"],
