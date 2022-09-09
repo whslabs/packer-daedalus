@@ -6,7 +6,7 @@
     state: directory
 - name: Set daedalus filename
   ansible.builtin.set_fact:
-    daedalus_filename: daedalus-{{ daedalus_version }}-mainnet-{{ daedalus_build_id }}.bin
+    daedalus_filename: daedalus-{{ daedalus_version }}-mainnet-{{ daedalus_build_id }}-x86_64-linux.bin
 - name: Download daedalus
   ansible.builtin.get_url:
     checksum: sha256:{{ daedalus_checksum }}

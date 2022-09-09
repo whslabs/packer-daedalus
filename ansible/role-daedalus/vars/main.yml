@@ -1,6 +1,6 @@
 ---
 # vars file for role-daedalus
 # https://buildkite.com/input-output-hk/daedalus/builds/<build id>
-daedalus_build_id: 21857
-daedalus_checksum: 46531a963d69687ca31dd68d471e0428f3d1bc2962da045d2e2618502463ad9b
-daedalus_version: 4.11.0
+daedalus_build_id: 22165
+daedalus_checksum: 1d429e7029852956fe3ca5e7536c8e3204c5fd1e6bbd43f3b1bb93305acbfe01
+daedalus_version: 5.0.0
